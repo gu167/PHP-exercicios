@@ -14,7 +14,7 @@ $cons=1;
 
         $cons=$cons*10;
     }
-    echo $c;
+    echo "O número de digitos de $n é:  $c";
 
 ?>
 </body>
