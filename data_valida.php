@@ -50,7 +50,7 @@ function isDateValid(int $day, string $month, int $year)
         return "Data inválida";
     }
 
-    return "Data válida: $day/$month/$year";
+    return "Data Válida: $day/$month/$year";
 }
 
 echo isDateValid(29, '02', 2020);
