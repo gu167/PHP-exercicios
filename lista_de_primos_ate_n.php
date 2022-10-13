@@ -7,28 +7,28 @@
 </head>
 
 <body>
+<pre>
 <?php
-
-
 function primos($numero): array
 {
-    $primosList = array();
+    $primosList = array(2, 3, 5, 7,);
+
     for ($i = 2; $i <= $numero; $i++) {
+
         if ($i % 2 == 0
-            && $i % 3 == 0
-            && $i % 5 == 0
-            && $i % 7 == 0
-            || $i == 2
-            || $i == 3
-            || $i == 5
-            || $i == 7) {
-            $primosList[] = $i;
+            || $i % 3 == 0
+            || $i % 5 == 0
+            || $i % 7 == 0) {
+            continue;
         }
+        $primosList[] = $i;
     }
     return $primosList;
 }
 
-var_dump(primos(11));
+print_r(primos(90));
 ?>
+    </pre>
+
 </body>
 </html>
