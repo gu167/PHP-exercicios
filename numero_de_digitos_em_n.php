@@ -13,7 +13,11 @@ for ($c = 0; $n >= $cons; $c++) {
 
     $cons = $cons * 10;
 }
-echo "O número de digitos de $n é:  $c";
+echo "O número de digitos de $n é:  $c<br>";
+
+echo "Ou, no PHP, podemos transformar o numero inteiro em uma string e usar o comando strlen:";
+$numberDigits = (string)$n;
+print_r( strlen($numberDigits));
 
 ?>
 </body>
