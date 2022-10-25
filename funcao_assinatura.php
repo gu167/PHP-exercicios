@@ -23,7 +23,7 @@ function signature($nome): string
             return strtoupper($nome);
         } else {
 
-            $initial[] = substr($words[$i-1], 0, 1);
+            $initial[] = substr($words[$i - 1], 0, 1);
         }
     }
 

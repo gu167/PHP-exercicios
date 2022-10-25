@@ -9,8 +9,8 @@ function sortList(array $list): array
         $index = array_search($min, $list, true);
         $sortedList [] = $min;
         unset($list[$index]);
-
     }
+
     return $sortedList;
 }
 

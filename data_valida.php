@@ -5,15 +5,15 @@
 
 function isDateValid(int $day, string $month, int $year)
 {
-    if(strlen($month) !== 2) {
+    if (strlen($month) !== 2) {
         return "Data inválida, mes deve conter 2 carecteres";
     }
 
-    if(!($day >= 1 && $day <= 31)) {
+    if (!($day >= 1 && $day <= 31)) {
         return "Data inválida, dia deve estar entre 1 e 31";
     }
 
-    if($year <= 1) {
+    if ($year <= 1) {
         return "Data inválida, ano tem q ser maior que 1";
     }
 
@@ -37,12 +37,12 @@ function isDateValid(int $day, string $month, int $year)
     $currentMonth = [];
 
     foreach ($months as $currMonth) {
-        if($currMonth['num'] === $month) {
+        if ($currMonth['num'] === $month) {
             $currentMonth = $currMonth;
         }
     }
 
-    if($isBissexto && $currentMonth['name'] === 'Fevereiro') {
+    if ($isBissexto && $currentMonth['name'] === 'Fevereiro') {
         $currentMonth['total_days'] = 29;
     }
 

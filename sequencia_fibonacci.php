@@ -18,8 +18,10 @@ function fib($n): int
 
     return $f[$n];
 }
+
 fib(10);
-echo ("O número Fibonacci da posição escolhida é: ".fib(10));
+
+echo("O número Fibonacci da posição escolhida é: " . fib(10));
 ?>
 </pre>
 </body>
