@@ -7,19 +7,22 @@
 
 <body>
 <?php
-$n = 123456789;
-$cons = 1;
+function digitCounter($n): string
+{
+    $cons = 1;
 
-for ($c = 0; $n >= $cons; $c++) {
-    $cons = $cons * 10;
+    for ($c = 0; $n >= $cons; $c++) {
+        $cons = $cons * 10;
+    }
+
+    // echo "Ou, no PHP, podemos transformar o numero inteiro em uma string e usar o comando strlen:";
+    //$numberDigits = (string)$n;
+    //  return (strlen($numberDigits));
+
+    return "O número de digitos de $n é:  $c<br>";
 }
 
-echo "O número de digitos de $n é:  $c<br>";
-
-echo "Ou, no PHP, podemos transformar o numero inteiro em uma string e usar o comando strlen:";
-$numberDigits = (string)$n;
-
-print_r(strlen($numberDigits));
+echo digitCounter(15);
 
 ?>
 </body>
