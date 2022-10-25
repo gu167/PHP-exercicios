@@ -3,7 +3,7 @@
 // atentar ao ano bissexto
 
 
-function isDateValid(int $day, string $month, int $year)
+function isDateValid(int $day, string $month, int $year):string
 {
     if (strlen($month) !== 2) {
         return "Data inválida, mes deve conter 2 carecteres";
