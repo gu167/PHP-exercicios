@@ -10,29 +10,32 @@
 
 function signature($nome): string
 {
-    $words = str_word_count($nome, 1);
-    $countWords = count($words);
-    $initial = array();
+    $nome = strtoupper(trim($nome));
 
-    for ($i = 0; $i < $countWords; $i++) {
-        if ($countWords == 0) {
-            return "Nome Inválido";
-        }
-        if ($countWords == 1) {
-
-            return strtoupper($nome);
-        } else {
-
-            $initial[] = substr($words[$i - 1], 0, 1);
-        }
+    if($nome === '') {
+        return "Nome Inválido";
     }
 
-    $initialGlue = implode(".", $initial);
+    $words = explode(' ', $nome);
+    $countWords = count($words);
 
-    return strtoupper($words[$countWords - 1]) . $initialGlue;
+    if ($countWords === 1) {
+        return strtoupper($nome);
+    }
+
+    $lastName = $words[$countWords - 1] . ', ';
+    unset($words[$countWords - 1]);
+
+    $signature = $lastName;
+
+    foreach ($words as $name) {
+        $signature .= $name[0] . '.';
+    }
+
+    return $signature;
 }
 
-print_r(signature("Gustavo Mendonca Tavares"));
+print_r(signature("Pedro Arthur Sasso de Mendonca"));
 
 
 ?>
