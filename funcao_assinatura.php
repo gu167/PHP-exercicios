@@ -20,7 +20,7 @@ function signature($nome): string
     $countWords = count($words);
 
     if ($countWords === 1) {
-        return strtoupper($nome);
+        return $nome;
     }
 
     $lastName = $words[$countWords - 1] . ', ';
@@ -35,7 +35,7 @@ function signature($nome): string
     return $signature;
 }
 
-print_r(signature("Pedro Arthur Sasso de Mendonca"));
+print_r(signature("Pedro"));
 
 
 ?>
