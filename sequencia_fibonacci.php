@@ -9,17 +9,16 @@
 <pre>
 <?php
 
-function fib($n): int
+function fib($position): int
 {
-    $f = array(0, 1,);
-    for ($i = 2; $i <= $n; $i++) {
-        $f[$i] = $f[$i - 1] + $f[$i - 2];
+    $fibonacciSequence = array(0, 1);
+
+    for ($i = 2; $i <= $position; $i++) {
+        $fibonacciSequence[$i] = $fibonacciSequence[$i - 1] + $fibonacciSequence[$i - 2];
     }
 
-    return $f[$n];
+    return $fibonacciSequence[$position];
 }
-
-fib(10);
 
 echo("O número Fibonacci da posição escolhida é: " . fib(10));
 ?>

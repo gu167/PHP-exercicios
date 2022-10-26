@@ -9,20 +9,20 @@
 <pre>
 <?php
 $n = 25;
-spiralmatrixrix($n);
+spiralMatrix($n);
 
-function spiralmatrixrix($n): void
+function spiralMatrix($n): void
 {
-    echo "Insira o numero final da sequência da matrixriz que tenha raiz exata.<br/>";
-
     $width = sqrt($n);
     $matrix = [];
+
     $x = floor($width / 2);
     $y = floor($width / 2);
-    $direita = 1;
-    $esquerda = 1;
-    $cima = 1;
-    $baixo = 1;
+
+    $right = 1;
+    $left = 1;
+    $up = 1;
+    $down = 1;
 
     for ($i = 0; $i < $width; $i++) {
         for ($j = 0; $j < $width; $j++) {
@@ -35,93 +35,108 @@ function spiralmatrixrix($n): void
     for ($i = 1; $i <= $n; $i++) {
         switch ($direction) {
             case 'right':
-                $movimentoDireita = $i;
-                for ($movD = 1; $movD <= $direita; $movD++) {
-                    if ($movD !== 1) {
-                        $movimentoDireita++;
+                $rightIterator = $i;
+
+                for ($rightMove = 1; $rightMove <= $right; $rightMove++) {
+                    if ($rightMove !== 1) {
+                        $rightIterator++;
                     }
-                    $matrix[$y][$x + 1] = $movimentoDireita;
+
+                    $matrix[$y][$x + 1] = $rightIterator;
+
                     if ($x < $width - 1) {
                         $x++;
                     }
                 }
-                $i = $movimentoDireita;
-                $direita += 2;
+                
+                $i = $rightIterator;
+                $right += 2;
                 $direction = 'up';
+
                 break;
             case 'up':
-                $movimentoCima = $i;
-                for ($movC = 1; $movC <= $cima; $movC++) {
-                    if ($movC !== 1) {
-                        $movimentoCima++;
+                $upIterator = $i;
+
+                for ($upMove = 1; $upMove <= $up; $upMove++) {
+                    if ($upMove !== 1) {
+                        $upIterator++;
                     }
 
-                    $matrix[$y - 1][$x] = $movimentoCima;
+                    $matrix[$y - 1][$x] = $upIterator;
 
                     if ($y > 0) {
                         $y--;
                     }
                 }
-                $direction = 'left';
-                $cima += 2;
-                $i = $movimentoCima;
-                break;
 
+                $direction = 'left';
+                $up += 2;
+                $i = $upIterator;
+
+                break;
             case 'left':
-                $movimentoEsquerda = $i;
-                for ($movE = 1; $movE <= $esquerda * 2; $movE++) {
-                    if ($movE !== 1) {
-                        $movimentoEsquerda++;
+                $leftIterator = $i;
+                
+                for ($leftMove = 1; $leftMove <= $left * 2; $leftMove++) {
+                    if ($leftMove !== 1) {
+                        $leftIterator++;
                     }
 
-                    $matrix[$y][$x - 1] = $movimentoEsquerda;
+                    $matrix[$y][$x - 1] = $leftIterator;
 
                     if ($x > 0) {
                         $x--;
                     }
                 }
+
                 $direction = 'down';
-                $esquerda++;
-                $i = $movimentoEsquerda;
+                $left++;
+                $i = $leftIterator;
+
                 break;
             case 'down':
-                $movimentoBaixo = $i;
-                for ($movB = 1; $movB <= $baixo * 2; $movB++) {
-                    if ($movB !== 1) {
-                        $movimentoBaixo++;
+                $downIterator = $i;
+
+                for ($downMove = 1; $downMove <= $down * 2; $downMove++) {
+                    if ($downMove !== 1) {
+                        $downIterator++;
                     }
 
-                    $matrix[$y + 1][$x] = $movimentoBaixo;
+                    $matrix[$y + 1][$x] = $downIterator;
 
                     if ($y < $width - 1) {
                         $y++;
                     }
                 }
-                $direction = 'right';
-                $baixo++;
-                $i = $movimentoBaixo;
-                break;
 
+                $direction = 'right';
+                $down++;
+                $i = $downIterator;
+
+                break;
             default:
                 $matrix[$y][$x] = $i;
                 $direction = 'right';
         }
     }
 
-    echo printmatrixrix($matrix, $width);
+    echo printMatrix($matrix, $width);
 }
 
-function printmatrixrix($matrixrix, $width): string
+function printMatrix($matrix, $width): string
 {
-    $stringmatrixrix = "";
+    $stringMatrix = "";
     $length = strlen((string)$width ** 2);
+
     for ($i = 0; $i < $width; $i++) {
         for ($j = 0; $j < $width; $j++) {
-            $stringmatrixrix .= str_pad($matrixrix[$i][$j], $length, 0, STR_PAD_LEFT) . ' ';
+            $stringMatrix .= str_pad($matrix[$i][$j], $length, 0, STR_PAD_LEFT) . ' ';
         }
-        $stringmatrixrix .= '<br>';
+
+        $stringMatrix .= '<br>';
     }
-    return $stringmatrixrix;
+
+    return $stringMatrix;
 }
 
 ?>

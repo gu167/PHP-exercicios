@@ -14,5 +14,5 @@ function sortList(array $list): array
     return $sortedList;
 }
 
-print_r(sortList([10, 1, 5, 7, 8, 9, 3, 4, 6, 2, 11, 90, 15]));
+print_r(sortList([10, 1, 1, 5, 7, 8, 9, 3, 4, 6, 2, 11, 90, 15]));
 

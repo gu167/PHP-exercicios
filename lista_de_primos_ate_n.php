@@ -11,18 +11,19 @@
 <?php
 function primos($numero): array
 {
-    $primosList = array(2, 3, 5, 7,);
+    $primosList = [2, 3, 5, 7];
 
     for ($i = 2; $i <= $numero; $i++) {
-
-        if ($i % 2 == 0
-            || $i % 3 == 0
-            || $i % 5 == 0
-            || $i % 7 == 0) {
+        if ($i % 2 === 0
+            || $i % 3 === 0
+            || $i % 5 === 0
+            || $i % 7 === 0) {
             continue;
         }
+
         $primosList[] = $i;
     }
+
     return $primosList;
 }
 
