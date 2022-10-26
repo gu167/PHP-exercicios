@@ -16,7 +16,7 @@ function digitCounter($n): string
     }
 
     // echo "Ou, no PHP, podemos transformar o numero inteiro em uma string e usar o comando strlen:";
-    //  return (strlen((string)$n));
+    //  return strlen((string)$n);
 
     return "O número de digitos de $n é: $c<br>";
 }
